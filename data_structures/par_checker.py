@@ -1,7 +1,7 @@
 from stack import *
-def parChecker(symbolString):
+def par_checker(symbol_string):
     stack = Stack()
-    for i in symbolString:
+    for i in symbol_string:
         if i == "(":
             stack.push(i)
         else:
@@ -12,5 +12,5 @@ def parChecker(symbolString):
     else:
         return False
 
-print(parChecker('((()))'))
-print(parChecker('(()'))
+print(par_checker('((()))'))
+print(par_checker('(()'))
