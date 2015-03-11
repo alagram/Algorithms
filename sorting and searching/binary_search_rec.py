@@ -1,5 +1,5 @@
 def binary_search(a_list, item):
-    end = len(a_list) - 1
+    # end = len(a_list) - 1
     if len(a_list) == 0:
         return False
     else:
