@@ -37,16 +37,6 @@ class unorderedList:
 
         return count
 
-    def size(self):
-        current = self.head
-        count = 0
-
-        while current != None:
-            count += 1
-            current = current.getNext()
-
-        return count
-
     def search(self, item):
         current = self.head
         found = False
