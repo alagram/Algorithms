@@ -159,7 +159,7 @@ class BinarySearchTree:
 
     def find_min(self):
         current = self
-        while current.has_right_child():
+        while current.has_left_child():
             current = current.left_child
         return current
 
