@@ -130,7 +130,7 @@ class BinarySearchTree:
             else:
                 self.parent.right_child = None
         elif self.has_any_children():
-            if self.has_right_child():
+            if self.has_left_child():
                 if self.is_left_child():
                     self.parent.left_child = self.left_child
                 else:
