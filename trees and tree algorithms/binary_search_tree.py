@@ -68,11 +68,13 @@ class BinarySearchTree:
                 self._put(key, val, current_node.left_child)
             else:
                 current_node.left_child = TreeNode(key, val, parent=current_node)
+                self.update_balance(current.left_child)
         else:
             if current_node.has_right_child():
                 self._put(key, val, current_node.right_child)
             else:
                 current_node.right_child = TreeNode(key, val, parent=current_node)
+                self.update_balance(current.right_child)
 
     def __setitem__(self, k, v):
         self.put(k, v)
