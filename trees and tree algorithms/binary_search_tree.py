@@ -202,6 +202,19 @@ class BinarySearchTree:
                                         current_node.right_child.left_child,
                                         current_node.right_child.right_child)
 
+    def update_balance(self, node):
+        if node.balance_factor > 1 or node.balance_factor < -1:
+            self.rebalance(node)
+            return
+        if node.parent != None:
+            if node.is_left_child():
+                node.parent.balance_factor += 1
+            elif node.is_right_child():
+                node.parent.balance_factor -= 1
+
+            if node.parent.balance_factor != 0:
+                self.update_balance(node.parent)
+
 
 my_tree = BinarySearchTree()
 my_tree[3] = "red"
