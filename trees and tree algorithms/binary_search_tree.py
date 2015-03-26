@@ -215,6 +215,23 @@ class BinarySearchTree:
             if node.parent.balance_factor != 0:
                 self.update_balance(node.parent)
 
+    def rotate_left(self, rot_root):
+        new_root = root.right_child #store new_root into a temp variable
+        rot_root.right_child = new_root.left_child #set right_child of old root to left_child of new_root
+        if new_root.left_child != None:  #if new_root has a left_child
+            new_root.left_child.parent = rot_root #set the parent of the new_root's left_child to old_root
+        new_root.parent = rot_root.parent #set the parent of new_root to old_root's parent
+        if rot_root.is_root():
+            self.root = new_root
+        else:
+            if rot_root.is_left_child():
+                rot_root.parent.left_child = new_root
+            else:
+                rot_root.parent.right_child = new_root
+        new_root.left_child = rot_root
+        rot_root.parent = new_root
+        rot_root.balance_factor = rot_root.balance_factor + 1 - min(new_root.balance_factor, 0)
+        new_root.balance_factor = new_root.balance_factor + 1 + max(rot_root.balance_factor, 0)
 
 my_tree = BinarySearchTree()
 my_tree[3] = "red"
