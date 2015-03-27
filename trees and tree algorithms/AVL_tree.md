@@ -1,5 +1,5 @@
 ### Balanced Binary Search Trees
-**AVL tree** and is named for its inventors: G.M. Adelson-Velskii and E.M. Landis.
+**AVL tree** is named for its inventors: G.M. Adelson-Velskii and E.M. Landis.
 
 
 An AVL tree implements the Map abstract data type just like a regular binary search tree, the only difference is in how the tree performs. To implement our AVL tree we need to keep track of a **balance factor** for each node in the tree. We do this by looking at the heights of the left and right subtrees for each node. More formally, we define the balance factor for a node as the difference between the height of the left subtree and the height of the right subtree.
