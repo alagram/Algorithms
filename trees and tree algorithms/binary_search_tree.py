@@ -202,6 +202,22 @@ class BinarySearchTree:
                                         current_node.right_child.left_child,
                                         current_node.right_child.right_child)
 
+
+class AVLTree(BinarySearchTree):
+    def _put(self, key, val, current_node):
+        if key < current_node.key:
+            if current_node.has_left_child():
+                self._put(key, val, current_node.left_child)
+            else:
+                current_node.left_child = TreeNode(key, val, parent=current_node)
+                self.update_balance(current_node.left_child)
+        else:
+            if current_node.has_right_child():
+                self._put(key, val, current_node.right_child)
+            else:
+                current_node.right_child = TreeNode(key, val, parent=current_node)
+                self.update_balance(current_node.right_child)
+
     def update_balance(self, node):
         if node.balance_factor > 1 or node.balance_factor < -1:
             self.rebalance(node)
