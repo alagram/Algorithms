@@ -42,6 +42,46 @@ class TreeNode:
         if self.has_right_child():
             self.right_child.parent = self
 
+    def splice_out(self):
+        if self.is_leaf():
+            if self.is_left_child():
+                self.parent.left_child = None
+            else:
+                self.parent.right_child = None
+        elif self.has_any_children():
+            if self.has_left_child():
+                if self.is_left_child():
+                    self.parent.left_child = self.left_child
+                else:
+                    self.parent.right_child = self.left_child
+                self.left_child.parent = self.parent
+            else:
+                if self.is_left_child():
+                    self.parent.left_child = self.right_child
+                else:
+                    self.parent.right_child = self.right_child
+                self.right_child.parent = self.parent
+
+    def find_successor(self):
+        succ = None
+        if self.has_right_child():
+            succ = self.right_child.find_min()
+        else:
+            if self.parent:
+                if self.is_left_child():
+                    succ = self.parent
+                else:
+                    self.parent.right_child = None
+                    succ = self.parent.find_successor()
+                    self.parent.right_child = self
+        return succ
+
+    def find_min(self):
+        current = self
+        while current.has_left_child():
+            current = current.left_child
+        return current
+
 
 
 class BinarySearchTree:
@@ -68,13 +108,11 @@ class BinarySearchTree:
                 self._put(key, val, current_node.left_child)
             else:
                 current_node.left_child = TreeNode(key, val, parent=current_node)
-                self.update_balance(current.left_child)
         else:
             if current_node.has_right_child():
                 self._put(key, val, current_node.right_child)
             else:
                 current_node.right_child = TreeNode(key, val, parent=current_node)
-                self.update_balance(current_node.right_child)
 
     def __setitem__(self, k, v):
         self.put(k, v)
@@ -124,46 +162,6 @@ class BinarySearchTree:
 
     def __delitem__(self, key):
         self.delete(key)
-
-    def splice_out(self):
-        if self.is_leaf():
-            if self.is_left_child():
-                self.parent.left_child = None
-            else:
-                self.parent.right_child = None
-        elif self.has_any_children():
-            if self.has_left_child():
-                if self.is_left_child():
-                    self.parent.left_child = self.left_child
-                else:
-                    self.parent.right_child = self.left_child
-                self.left_child.parent = self.parent
-            else:
-                if self.is_left_child():
-                    self.parent.left_child = self.right_child
-                else:
-                    self.parent.right_child = self.right_child
-                self.right_child.parent = self.parent
-
-    def find_successor(self):
-        succ = None
-        if self.has_right_child():
-            succ = self.right_child.find_min()
-        else:
-            if self.parent:
-                if self.is_left_child():
-                    succ = self.parent
-                else:
-                    self.parent.right_child = None
-                    succ = self.parent.find_successor()
-                    self.parent.right_child = self
-        return succ
-
-    def find_min(self):
-        current = self
-        while current.has_left_child():
-            current = current.left_child
-        return current
 
     def remove(self, current_node):
         if current_node.is_leaf(): # leaf
