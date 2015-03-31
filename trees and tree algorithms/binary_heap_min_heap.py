@@ -51,14 +51,18 @@ class BinHeap:
             self.perc_down(i)
             i = i - 1
 
+    def heap_sort(self, a_list):
+        self.build_heap(a_list)
+        return self.heap_list[1:]
+
+
 bh = BinHeap()
+print bh.heap_sort([9, 6, 5, 2, 3])
 bh.build_heap([9, 6, 5, 2, 3])
 print bh.heap_list
-bh.del_min()
-bh.del_min()
-bh.del_min()
-bh.del_min()
-bh.del_min()
-print bh.heap_list
-
-
+# bh.del_min()
+# bh.del_min()
+# bh.del_min()
+# bh.del_min()
+# bh.del_min()
+# print bh.heap_list
