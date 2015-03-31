@@ -5,6 +5,7 @@ class TreeNode:
         self.left_child = left
         self.right_child = right
         self.parent = parent
+        self.balance_factor = 0
 
     def has_left_child(self):
         return self.left_child
@@ -41,6 +42,16 @@ class TreeNode:
 
         if self.has_right_child():
             self.right_child.parent = self
+
+    def __iter__(self):
+        if self:
+            if self.has_left_child():
+                for elem in self.left_child:
+                    yield elem
+            yield self.key
+            if self.has_right_child():
+                for elem in self.right_child:
+                    yield elem
 
     def splice_out(self):
         if self.is_leaf():
@@ -247,11 +258,58 @@ class AVLTree(BinarySearchTree):
         rot_root.balance_factor = rot_root.balance_factor + 1 - min(new_root.balance_factor, 0)
         new_root.balance_factor = new_root.balance_factor + 1 + max(rot_root.balance_factor, 0)
 
-my_tree = BinarySearchTree()
-my_tree[3] = "red"
-my_tree[4] = "blue"
-my_tree[6] = "yellow"
-my_tree[2] = "at"
+    def rotate_right(self, rot_root):
+        new_root = rot_root.left_child
+        rot_root.left_child = new_root.right_child
+        if new_root.right_child != None:
+            new_root.right_child.parent = rot_root
+        new_root.parent = rot_root.parent
+        if rot_root.is_root():
+            self.root = new_root
+        else:
+            if rot_root.is_right_child():
+                rot_root.parent.right_child = new_root
+            else:
+                rot_root.parent.left_child = new_root
+        new_root.right_child = rot_root
+        rot_root.parent = new_root
+        rot_root.balance_factor = rot_root.balance_factor - 1 - max(new_root.balance_factor, 0)
+        new_root.balance_factor = new_root.balance_factor + 1 - min(rot_root.balance_factor, 0)
 
-print(my_tree[6])
-print(my_tree[2])
+    def rebalance(self, node):
+        # right heavy
+        if node.balance_factor < 0:
+            if node.right_child.balance_factor > 0:
+                self.rotate_right(node.right_child)
+                self.rotate_left(node)
+            else:
+                self.rotate_left(node)
+        # left heavy
+        elif node.balance_factor > 0:
+            if node.left_child.balance_factor < 0:
+                self.rotate_left(node.left_child)
+                self.rotate_right(node)
+            else:
+                self.rotate_right(node)
+
+
+bal_tree = BinarySearchTree()
+
+bal_tree[5] = "red"
+bal_tree[30] = "blue"
+bal_tree[2] = "yellow"
+bal_tree[40] = "at"
+bal_tree[25] = "brown"
+bal_tree[4] = "orange"
+
+# print len(bal_tree)
+# print(bal_tree[30])
+# print(bal_tree[25])
+# del bal_tree[40]
+# print len(bal_tree)
+# print bal_tree.root.key
+# print bal_tree.root.left_child.key
+# print bal_tree.root.right_child.key
+
+for node in bal_tree.root:
+    print node
