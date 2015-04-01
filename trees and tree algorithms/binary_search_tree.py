@@ -269,10 +269,10 @@ class AVLTree(BinarySearchTree):
         if rot_root.is_root():
             self.root = new_root
         else:
-            if rot_root.is_right_child():
-                rot_root.parent.right_child = new_root
-            else:
+            if rot_root.is_left_child():
                 rot_root.parent.left_child = new_root
+            else:
+                rot_root.parent.right_child = new_root
         new_root.right_child = rot_root
         rot_root.parent = new_root
         rot_root.balance_factor = rot_root.balance_factor - 1 - max(new_root.balance_factor, 0)
