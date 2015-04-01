@@ -183,8 +183,8 @@ class BinarySearchTree:
             else:
                 current_node.parent.right_child = None
         elif current_node.has_both_children(): # interior
-            succ = current_node.find_successor()
-            succ.splice_out()
+            succ = current_node.find_successor() # find successor
+            succ.splice_out() # remove successor from bst
             current_node.key = succ.key
             current_node.payload = succ.payload
         else: # this node has one child
