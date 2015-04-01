@@ -114,7 +114,9 @@ class BinarySearchTree:
         self.size = self.size + 1
 
     def _put(self, key, val, current_node):
-        if key < current_node.key:
+        if key == current_node.key:
+            current_node.payload = val
+        elif key < current_node.key:
             if current_node.has_left_child():
                 self._put(key, val, current_node.left_child)
             else:
@@ -301,15 +303,9 @@ bal_tree[2] = "yellow"
 bal_tree[40] = "at"
 bal_tree[25] = "brown"
 bal_tree[4] = "orange"
+bal_tree[4] = "purple"
 
-# print len(bal_tree)
-# print(bal_tree[30])
-# print(bal_tree[25])
-# del bal_tree[40]
-# print len(bal_tree)
-# print bal_tree.root.key
-# print bal_tree.root.left_child.key
-# print bal_tree.root.right_child.key
+print bal_tree.root.left_child.right_child.payload
 
 for node in bal_tree.root:
     print node
