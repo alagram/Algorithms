@@ -276,7 +276,7 @@ class AVLTree(BinarySearchTree):
         new_root.right_child = rot_root
         rot_root.parent = new_root
         rot_root.balance_factor = rot_root.balance_factor - 1 - max(new_root.balance_factor, 0)
-        new_root.balance_factor = new_root.balance_factor + 1 - min(rot_root.balance_factor, 0)
+        new_root.balance_factor = new_root.balance_factor - 1 + min(rot_root.balance_factor, 0)
 
     def rebalance(self, node):
         # right heavy
