@@ -1,4 +1,3 @@
-
 class BinaryTree:
     def __init__(self, root_obj):
         self.key = root_obj
@@ -33,34 +32,39 @@ class BinaryTree:
     def get_root_val(self):
         return self.key
 
-    # def pre_order(self):
-    #     print(self.key)
-    #     if self.left_child:
-    #         self.left.pre_order()
-    #     if self.right_child:
-    #         self.right.pre_order()
+    def pre_order(self):
+        print(self.key)
+        if self.left_child:
+            self.left_child.pre_order()
+        if self.right_child:
+            self.right_child.pre_order()
 
-# def build_tree():
-#     tree = BinaryTree('a')
+    def in_order(self):
+        if self.left_child:
+            self.left_child.in_order()
+        print self.key
+        if self.right_child:
+            self.right_child.in_order()
 
-#     tree.insert_left('b')
-#     tree.insert_right('c')
-#     tree.get_left_child().insert_right('d')
-#     tree.get_right_child().insert_left('e')
-#     tree.get_right_child().insert_right('f')
+    def post_order(self):
+        if self.left_child:
+            self.left_child.post_order()
+        if self.right_child:
+            self.right_child.post_order()
+        print self.key
 
-#     return tree
 
-# print(build_tree())
+def build_tree():
+    tree = BinaryTree('a')
 
-# r = BinaryTree('a')
-# print(r.get_root_val())
-# print(r.get_left_child())
-# r.insert_left('b')
-# print(r.get_left_child())
-# print(r.get_left_child().get_root_val())
-# r.insert_right('c')
-# print(r.get_right_child())
-# print(r.get_right_child().get_root_val())
-# r.get_right_child().set_root_val('hello')
-# print(r.get_right_child().get_root_val())
+    tree.insert_left('b')
+    tree.insert_right('c')
+    tree.get_left_child().insert_left('d')
+    tree.get_left_child().insert_right('e')
+    tree.get_right_child().insert_left('f')
+    tree.get_right_child().insert_right('g')
+
+    return tree
+
+tree = build_tree()
+print tree.post_order()
