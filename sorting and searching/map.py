@@ -34,6 +34,14 @@ class HashTable:
     def rehash(self, old_hash, size):
         return (old_hash + 1) % size
 
+    def string_hash_function(self, a_string, size):
+        str_sum = 0
+        i = 0
+        while i < len(a_string):
+            str_sum += (ord(a_string[i]) * (i+1))
+            i += 1
+        return str_sum % size
+
     def get(self, key):
         start_slot = self.hash_function(key, len(self.slots))
 
@@ -58,7 +66,36 @@ class HashTable:
         return self.get(key)
 
     def __setitem__(self, key, data):
-            self.put(key, data)
+        self.put(key, data)
+
+    def __len__(self):
+        return self.size
+
+    def __contains__(self, key):
+        if self.get(key):
+            return True
+        else:
+            return False
+
+    def delete(self, key):
+        start_slot = self.hash_function(key, len(self.slots))
+        position = start_slot
+        stop = False
+        found = False
+
+        while self.slots[position] != None and not stop and not found:
+            if self.slots[position] == key:
+                found = True
+                self.slots[position] = None
+                self.data[position] = None
+            else:
+                position = self.rehash(position, len(self.slots))
+
+                if position == start_slot:
+                    stop = True
+
+    def __delitem__(self, key):
+        self.delete(key)
 
 
 h = HashTable()
@@ -73,3 +110,8 @@ h[55] = "pig"
 h[20] = "chicken"
 print(h.slots)
 print(h.data)
+del h[44]
+print(h.slots)
+print(h.data)
+print "goat" in h.data
+print len(h)
