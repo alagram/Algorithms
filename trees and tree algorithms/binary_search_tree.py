@@ -93,6 +93,12 @@ class TreeNode:
             current = current.left_child
         return current
 
+    def find_max(self):
+        current = self
+        while current.has_right_child():
+            current = current.right_child
+        return current
+
 
 
 class BinarySearchTree:
