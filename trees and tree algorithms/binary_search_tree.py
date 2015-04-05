@@ -112,6 +112,9 @@ class BinarySearchTree:
     def __len__(self):
         return self.size
 
+    def __iter__(self):
+        return self.root.__iter__()
+
     def put(self, key, val):
         if self.root:
             self._put(key, val, self.root)
