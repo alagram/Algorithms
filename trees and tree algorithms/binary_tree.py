@@ -54,17 +54,17 @@ class BinaryTree:
         print self.key
 
 
-def build_tree():
-    tree = BinaryTree('a')
+# def build_tree():
+#     tree = BinaryTree('a')
 
-    tree.insert_left('b')
-    tree.insert_right('c')
-    tree.get_left_child().insert_left('d')
-    tree.get_left_child().insert_right('e')
-    tree.get_right_child().insert_left('f')
-    tree.get_right_child().insert_right('g')
+#     tree.insert_left('b')
+#     tree.insert_right('c')
+#     tree.get_left_child().insert_left('d')
+#     tree.get_left_child().insert_right('e')
+#     tree.get_right_child().insert_left('f')
+#     tree.get_right_child().insert_right('g')
 
-    return tree
+#     return tree
 
-tree = build_tree()
-print tree.post_order()
+# tree = build_tree()
+# print tree.post_order()
