@@ -1,4 +1,6 @@
-from stack import *
+import os, sys
+sys.path.insert(0, os.path.abspath(".."))
+from data_structures.stack import Stack
 from binary_tree import BinaryTree
 
 def build_parse_tree(fp_exp):
@@ -13,7 +15,6 @@ def build_parse_tree(fp_exp):
             p_stack.push(current_tree)
             current_tree = current_tree.get_left_child()
         elif i not in ['+', '-', '*', '/', ')']:
-            print(current_tree)
             current_tree.set_root_val(int(i))
             parent = p_stack.pop()
             current_tree = parent
