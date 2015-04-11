@@ -10,6 +10,7 @@ class Queue:
         self.items.insert(0, item)
 
     def dequeue(self):
+        if not self.items: return None
         return self.items.pop()
 
     def size(self):
