@@ -11,12 +11,12 @@ class PriorityQueue(BinHeap):
     def dequeue(self):
         return self.del_min()
 
-pq = PriorityQueue()
-pq.enqueue(9)
-pq.enqueue(6)
-pq.enqueue(5)
-pq.enqueue(2)
-pq.enqueue(3)
-print pq.dequeue()
-print pq.heap_list
-print pq.current_size
+# pq = PriorityQueue()
+# pq.enqueue(9)
+# pq.enqueue(6)
+# pq.enqueue(5)
+# pq.enqueue(2)
+# pq.enqueue(3)
+# print pq.dequeue()
+# print pq.heap_list
+# print pq.current_size
