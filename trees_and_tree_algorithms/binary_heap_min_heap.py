@@ -43,6 +43,12 @@ class BinHeap:
         self.perc_down(1) # maintain heap order property
         return ret_val # return min
 
+    def is_empty(self):
+        if self.current_size == 0:
+            return True
+        else:
+            return False
+
     def build_heap(self, a_list):
         i = len(a_list) // 2
         self.current_size = len(a_list)
@@ -50,6 +56,7 @@ class BinHeap:
         while (i > 0):
             self.perc_down(i)
             i = i - 1
+        print(self.heap_list, i)
 
 
 bh = BinHeap()

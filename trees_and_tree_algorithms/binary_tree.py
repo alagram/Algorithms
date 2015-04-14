@@ -54,6 +54,13 @@ class BinaryTree:
         print self.key
 
 
+def height(tree):
+    if tree == None:
+        return -1
+    else:
+        return 1 + max(height(tree.left_child), height(tree.right_child))
+
+
 # def build_tree():
 #     tree = BinaryTree('a')
 
