@@ -1,4 +1,4 @@
-class BinHeap:
+class BinaryHeap:
     def __init__(self):
         self.heap_list = [0]
         self.current_size = 0
@@ -59,7 +59,7 @@ class BinHeap:
         print(self.heap_list, i)
 
 
-bh = BinHeap()
+bh = BinaryHeap()
 bh.build_heap([9, 6, 5, 2, 3])
 print bh.heap_list
 bh.del_min()
