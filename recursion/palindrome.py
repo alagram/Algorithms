@@ -1,6 +1,3 @@
-from string import punctuation
-
-
 def is_palindrome(my_string):
     new_str = "".join(i.lower() for i in my_string if i not in [" ", "-", ".", ":", ";", ",", "'"])
     if len(new_str) <= 1:
