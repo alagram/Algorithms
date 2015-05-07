@@ -59,12 +59,12 @@ class BinaryHeap:
         print(self.heap_list, i)
 
 
-bh = BinaryHeap()
-bh.build_heap([9, 6, 5, 2, 3])
-print bh.heap_list
-bh.del_min()
-bh.del_min()
-bh.del_min()
-bh.del_min()
-bh.del_min()
-print bh.heap_list
+# bh = BinaryHeap()
+# bh.build_heap([9, 6, 5, 2, 3])
+# print bh.heap_list
+# bh.del_min()
+# bh.del_min()
+# bh.del_min()
+# bh.del_min()
+# bh.del_min()
+# print bh.heap_list
