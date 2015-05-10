@@ -27,6 +27,23 @@ class BinarySearchTreeTests(unittest.TestCase):
         assert self.bst.root.left_child.key == 10
         assert self.bst.root.right_child.key == 70
 
+    def test_put_oper(self):
+        self.bst[25] = 'g'
+        assert self.bst[25] == 'g'
+
+    def test_find_succ(self):
+        x = binary_search_tree.BinarySearchTree()
+        x.put(10, 'a')
+        x.put(15, 'b')
+        x.put(6, 'c')
+        x.put(2, 'd')
+        x.put(8, 'e')
+        x.put(9, 'f')
+        assert x.root.left_child.left_child.find_successor().key == 6
+        assert x.root.left_child.right_child.find_successor().key == 9
+        assert x.root.left_child.right_child.right_child.find_successor().key == 10
+
+
 
 if __name__ == '__main__':
     unittest.main()
