@@ -304,17 +304,17 @@ class AVLTree(BinarySearchTree):
                 self.rotate_right(node)
 
 
-bal_tree = BinarySearchTree()
+# bal_tree = BinarySearchTree()
 
-bal_tree[5] = "red"
-bal_tree[30] = "blue"
-bal_tree[2] = "yellow"
-bal_tree[40] = "at"
-bal_tree[25] = "brown"
-bal_tree[4] = "orange"
-bal_tree[4] = "purple"
+# bal_tree[5] = "red"
+# bal_tree[30] = "blue"
+# bal_tree[2] = "yellow"
+# bal_tree[40] = "at"
+# bal_tree[25] = "brown"
+# bal_tree[4] = "orange"
+# bal_tree[4] = "purple"
 
-print bal_tree.root.left_child.right_child.payload
+# print bal_tree.root.left_child.right_child.payload
 
-for node in bal_tree.root:
-    print node
+# for node in bal_tree.root:
+#     print node
