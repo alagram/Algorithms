@@ -1,3 +1,5 @@
+# Knuth Morris Pratt Search
+
 def search(string, word):
 	word_length = len(word)
 	string_length = len(string)
@@ -38,3 +40,4 @@ def compute_prefix(word):
 
 
 print search("ABC ABCDAB ABCDABCDABDE", "ABCDAB")
+print search("aaaab", "aab")
