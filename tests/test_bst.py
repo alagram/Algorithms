@@ -43,6 +43,16 @@ class BinarySearchTreeTests(unittest.TestCase):
         assert x.root.left_child.right_child.find_successor().key == 9
         assert x.root.left_child.right_child.right_child.find_successor().key == 10
 
+    def test_size(self):
+        self.bst.put(50, 'a')
+        self.bst.put(10, 'b')
+        self.bst.put(70, 'c')
+        self.bst.put(30, 'd')
+        self.bst.put(85, 'd')
+        self.bst.put(15, 'e')
+        self.bst.put(45, 'f')
+        assert self.bst.length() == 7
+
 
 
 if __name__ == '__main__':
