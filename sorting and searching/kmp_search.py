@@ -54,5 +54,5 @@ def compute_prefix(word):
 	return prefix
 
 
-# print search("ABC ABCDAB ABCDABCDABDE", "ABCDAB")
+print search("ABC ABCDAB ABCDABCDABDE", "ABCDAB")
 print search("aaaab", "aab")
