@@ -40,7 +40,7 @@ def has_key(k, tr):
         return False
     return True
 
-def retrie_val(k, tr):
+def retrieve_val(k, tr):
     if k == "":
         return None
     key_tuple = _retrieve_branch(k, tr)
@@ -60,10 +60,12 @@ def insert_key(key, v, trie_list):
         for char in key:
             branch = _get_child_branch(tr, char)
             if branch == None:
+                # char not in trie
                 new_branch = [char]
                 tr.append(new_branch)
                 tr = new_branch
             else:
+                # char already in trie
                 tr = branch
         tr.append((key, v))
         return None
