@@ -222,6 +222,33 @@ class BinarySearchTree:
                                         current_node.right_child.left_child,
                                         current_node.right_child.right_child)
 
+    def _inorder(self, tree):
+        if tree != None:
+            self._inorder(tree.left_child)
+            print(tree.key)
+            self._inorder(tree.right_child)
+
+    def _postorder(self, tree):
+        if tree:
+            self._postorder(tree.left_child)
+            self._postorder(tree.right_child)
+            print(tree.key)
+
+    def _preorder(self, tree):
+        if tree:
+            print(tree.key)
+            self._preorder(tree.left_child)
+            self._preorder(tree.right_child)
+
+    def inorder(self):
+        self._inorder(self.root)
+
+    def postorder(self):
+        self._postorder(self.root)
+
+    def preorder(self):
+        self._preorder(self.root)
+
 
 class AVLTree(BinarySearchTree):
     def _put(self, key, val, current_node):
