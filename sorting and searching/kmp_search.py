@@ -24,7 +24,7 @@ def search(string, word):
         if word[i] == string[j]:
             i += 1
 
-        if i ==  word_length:
+        if i == word_length:
             offsets.append(j - word_length + 1)
             i = prefix[i - 1]
 
