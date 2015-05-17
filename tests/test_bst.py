@@ -53,6 +53,20 @@ class BinarySearchTreeTests(unittest.TestCase):
         self.bst.put(45, 'f')
         assert self.bst.length() == 7
 
+    def test_delete(self):
+        self.bst.put(50, 'a')
+        self.bst.put(10, 'b')
+        self.bst.put(70, 'c')
+        self.bst.put(30, 'd')
+        self.bst.put(85, 'd')
+        self.bst.put(15, 'e')
+        self.bst.put(45, 'f')
+        self.bst.put(5, 'g')
+
+        assert(10 in self.bst) == True
+        self.bst.delete(10)
+        assert(10 in self.bst) == False
+
 
 
 if __name__ == '__main__':
