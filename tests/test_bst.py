@@ -65,7 +65,17 @@ class BinarySearchTreeTests(unittest.TestCase):
 
         assert(10 in self.bst) == True
         self.bst.delete(10)
+        
         assert(10 in self.bst) == False
+        assert self.bst.root.left_child.key == 15
+        assert self.bst.root.left_child.parent == self.bst.root
+        assert self.bst.root.left_child.right_child.parent == self.bst.root.left_child
+        assert self.bst.get(30) == 'd'
+        self.bst.delete(15)
+
+        assert self.bst.root.left_child.key == 30
+        assert self.bst.root.left_child.right_child.key == 45
+        assert self.bst.root.left_child.right_child.parent == self.bst.root.left_child
 
 
 
