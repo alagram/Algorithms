@@ -30,6 +30,34 @@ class AVLTreeTests(unittest.TestCase):
         self.avl_tree.put(90, 'e')
         assert self.avl_tree.root.key == 70
 
+    def test_auto_4(self):
+        self.avl_tree.put(40, 'a')
+        self.avl_tree.put(30, 'b')
+        self.avl_tree.put(50, 'c')
+        self.avl_tree.put(10, 'd')
+        self.avl_tree.put(35, 'e')
+        self.avl_tree.put(37, 'f')
+        assert self.avl_tree.root.key == 35
+        assert self.avl_tree.root.left_child.key == 30
+        assert self.avl_tree.root.right_child.key == 40
+        assert self.avl_tree.root.balance_factor == 0
+        assert self.avl_tree.root.left_child.balance_factor == 1
+        assert self.avl_tree.root.right_child.balance_factor == 0
+
+    def test_auto_5(self):
+        self.avl_tree.put(40, 'a')
+        self.avl_tree.put(30, 'b')
+        self.avl_tree.put(50, 'c')
+        self.avl_tree.put(45, 'd')
+        self.avl_tree.put(60, 'e')
+        self.avl_tree.put(43, 'f')
+        assert self.avl_tree.root.key == 45
+        assert self.avl_tree.root.left_child.key == 40
+        assert self.avl_tree.root.right_child.key == 50
+        assert self.avl_tree.root.balance_factor == 0
+        assert self.avl_tree.root.left_child.balance_factor == 0
+        assert self.avl_tree.root.right_child.balance_factor == -1
+
 
 if __name__ == '__main__':
     unittest.main()
