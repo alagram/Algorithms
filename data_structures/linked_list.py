@@ -69,6 +69,17 @@ class UnorderedList:
         else:
             previous.setNext(current.getNext())
 
+    def reverse_rec(self, a_node):
+        if a_node != None:
+            right = a_node.get_next()
+            if self.head != a_node:
+                a_node.next = self.head
+                self.head = a_node
+            else:
+                a_node.next = None
+
+            self.reverse_rec(right)
+
     def insert(self, item, exsitItem):
         temp = Node(item)
         current = self.head
