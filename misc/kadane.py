@@ -10,5 +10,13 @@ def find_max_subarray(a_list):
     return max_value
 
 
+def find_max_subarray_2(a_list):
+    max_till_here = [a_list[0]]
+    for num in a_list[1:]:
+        max_till_here.append(max(num, max_till_here[-1] + num))
+    return max(max_till_here)
+
+
 
 print find_max_subarray([1, 4, -1, 3, -5, 4]) # 7
+print find_max_subarray_2([1, 4, -1, 3, -5, 4]) # 7
