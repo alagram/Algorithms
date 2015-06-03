@@ -34,7 +34,7 @@ def partition(a_list, first, last):
     a_list[first] = a_list[right_mark]
     a_list[right_mark] = temp
 
-    # return split point to divide list again for futher quick sorts
+    # return split point to divide list again for further quick sorts
     return right_mark
 
 my_list = [54, 26, 93, 17]
