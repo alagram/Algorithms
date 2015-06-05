@@ -29,7 +29,7 @@ class PriorityQueue:
             if index * 2 + 1 > self.current_size:
                 return index * 2
             else:
-                if self.heap_array[index * 2][0] < self.heap_array[i * 2 + 1][0]:
+                if self.heap_array[index * 2][0] < self.heap_array[index * 2 + 1][0]:
                     return index * 2
                 else:
                     return index * 2 + 1
