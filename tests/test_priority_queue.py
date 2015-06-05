@@ -14,7 +14,8 @@ class TestPriorityQueue(unittest.TestCase):
         self.the_heap.add((6, 'a'))
         self.the_heap.add((4, 'd'))
 
-
+    def test_insert(self):
+        assert self.the_heap.current_size == 5
 
 if __name__ == '__main__':
     unittest.main()
