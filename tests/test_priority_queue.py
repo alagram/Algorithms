@@ -17,5 +17,9 @@ class TestPriorityQueue(unittest.TestCase):
     def test_insert(self):
         assert self.the_heap.current_size == 5
 
+    def test_del_min(self):
+        assert self.the_heap.del_min() == 'x'
+        assert self.the_heap.del_min() == 'y'
+
 if __name__ == '__main__':
     unittest.main()
