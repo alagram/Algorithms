@@ -21,5 +21,9 @@ class TestPriorityQueue(unittest.TestCase):
         assert self.the_heap.del_min() == 'x'
         assert self.the_heap.del_min() == 'y'
 
+    def test_dec_key(self):
+        self.the_heap.decrease_key('d', 1)
+        assert self.the_heap.del_min() == 'd'
+
 if __name__ == '__main__':
     unittest.main()
