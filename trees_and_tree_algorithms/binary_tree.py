@@ -74,4 +74,24 @@ def height(tree):
 #     return tree
 
 # tree = build_tree()
+# problem no. 8: http://cslibrary.stanford.edu/110/BinaryTrees.html
+# http://www.geeksforgeeks.org/given-a-binary-tree-print-out-all-of-its-root-to-leaf-paths-one-per-line/
+def print_paths(node):
+    return print_paths_recur(node, [])
+
+
+def print_paths_recur(current_node, path):
+    if current_node == None:
+        return
+
+    path.append(current_node.key)
+
+    if current_node.left_child == None and current_node.right_child == None:
+        for i in range(len(path)):
+            print path[i]
+        print "\n"
+    else:
+        print_paths_recur(current_node.left_child, path)
+        print_paths_recur(current_node.right_child, path)
+    path = path.pop(len(path)-1)
 # print tree.post_order()
