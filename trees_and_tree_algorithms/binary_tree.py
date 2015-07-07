@@ -94,4 +94,21 @@ def print_paths_recur(current_node, path):
         print_paths_recur(current_node.left_child, path)
         print_paths_recur(current_node.right_child, path)
     path = path.pop(len(path)-1)
+
+# O(n) time O(n) space
+def iterative_post_order(root):
+    s1 = []
+    s2 = []
+    s1.append(root)
+    while s1 != []:
+        root = s1.pop()
+        s2.append(root)
+        if root.get_left_child():
+            s1.append(root.left_child)
+        if root.get_right_child():
+            s1.append(root.right_child)
+
+    while s2 != []:
+        root = s2.pop()
+        print root.key
 # print tree.post_order()
