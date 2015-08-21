@@ -4,7 +4,7 @@ from graphs_and_graph_algorithms.graph import Graph
 
 class TopologicalSort(Graph):
     def __init__(self):
-        super().__init__()
+        super(TopologicalSort, self).__init__()
         self.time = 0
         self.topological_list = []
 
@@ -20,7 +20,7 @@ class TopologicalSort(Graph):
     def dfs_visit(self, start_vert):
         start_vert.set_color('gray')
         self.time += 1
-        self.set_discovery(self.time)
+        start_vert.set_discovery(self.time)
 
         for next_vert in start_vert.get_connections():
             if next_vert.get_color() == 'white':
@@ -29,4 +29,18 @@ class TopologicalSort(Graph):
         start_vert.set_color('black')
         self.time += 1
         start_vert.set_finish(self.time)
-        self.topological_list.append(0, (start_vert, self.time))
+        self.topological_list.insert(0, (start_vert.get_id(), self.time))
+
+
+if __name__ == '__main__':
+    g = TopologicalSort()
+    g.add_edge('a', 'c')
+    g.add_edge('b', 'c')
+    g.add_edge('b', 'd')
+    g.add_edge('c', 'e')
+    g.add_edge('e', 'f')
+    g.add_edge('d', 'f')
+    g.add_edge('f', 'g')
+
+
+    print g.topological_sort()
