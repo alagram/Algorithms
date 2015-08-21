@@ -54,7 +54,7 @@ class Vertex:
     def set_pred(self, p):
         self.pred = p
 
-class Graph:
+class Graph(object):
     def __init__(self):
         self.vert_list = {}
         self.num_vertices = 0
