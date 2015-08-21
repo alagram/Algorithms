@@ -248,3 +248,22 @@ class BinarySearchTree:
 
     def preorder(self):
         self._preorder(self.root)
+
+
+bst = BinarySearchTree()
+bst.put(20, '20')
+bst.put(8, '8')
+bst.put(4, '4')
+bst.put(3, '3')
+bst.put(12, '12')
+bst.put(22, '22')
+bst.put(23, '23')
+
+a = iter(bst)
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
+print a.next()
