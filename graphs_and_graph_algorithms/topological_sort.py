@@ -2,6 +2,12 @@ import os, sys
 sys.path.insert(0, os.path.abspath(".."))
 from graphs_and_graph_algorithms.graph import Graph
 
+"""
+ref: http://interactivepython.org/runestone/static/pythonds/Graphs/TopologicalSorting.html
+ref: https://www.youtube.com/watch?v=ddTC4Zovtbc
+space and time complexity: O(n)
+"""
+
 class TopologicalSort(Graph):
     def __init__(self):
         super(TopologicalSort, self).__init__()
@@ -29,7 +35,7 @@ class TopologicalSort(Graph):
         start_vert.set_color('black')
         self.time += 1
         start_vert.set_finish(self.time)
-        self.topological_list.insert(0, (start_vert.get_id(), self.time))
+        self.topological_list.insert(0, start_vert.get_id())
 
 
 if __name__ == '__main__':
