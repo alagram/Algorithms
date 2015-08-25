@@ -5,6 +5,12 @@ from graphs_and_graph_algorithms.graph import Graph
 """
 ref: https://www.youtube.com/watch?v=RpgcYiky7uw
 ref: http://interactivepython.org/runestone/static/pythonds/Graphs/StronglyConnectedComponents.html
+
+Algorithm (Kosaraju's):
+1) create an order of vertices by finish time in decreasing order
+2) reverse the graph
+3) do a dfs on reversed graph by finish time of vertex in decreasing order
+4) each forest computed in 3 is a strongly connected component
 """
 def strongly_connected_components(graph):
     stack = []
