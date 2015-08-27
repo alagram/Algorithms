@@ -61,72 +61,17 @@ def height(tree):
         return 1 + max(height(tree.left_child), height(tree.right_child))
 
 
-# def build_tree():
-#     tree = BinaryTree('a')
+def build_tree():
+    tree = BinaryTree('a')
 
-#     tree.insert_left('b')
-#     tree.insert_right('c')
-#     tree.get_left_child().insert_left('d')
-#     tree.get_left_child().insert_right('e')
-#     tree.get_right_child().insert_left('f')
-#     tree.get_right_child().insert_right('g')
+    tree.insert_left('b')
+    tree.insert_right('c')
+    tree.get_left_child().insert_left('d')
+    tree.get_left_child().insert_right('e')
+    tree.get_right_child().insert_left('f')
+    tree.get_right_child().insert_right('g')
 
-#     return tree
-
-# tree = build_tree()
-# problem no. 8: http://cslibrary.stanford.edu/110/BinaryTrees.html
-# http://www.geeksforgeeks.org/given-a-binary-tree-print-out-all-of-its-root-to-leaf-paths-one-per-line/
-def print_paths(node):
-    return print_paths_recur(node, [])
+    return tree
 
 
-def print_paths_recur(current_node, path):
-    if current_node == None:
-        return
-
-    path.append(current_node.key)
-
-    if current_node.left_child == None and current_node.right_child == None:
-        for i in range(len(path)):
-            print path[i]
-        print "\n"
-    else:
-        print_paths_recur(current_node.left_child, path)
-        print_paths_recur(current_node.right_child, path)
-    path = path.pop(len(path)-1)
-
-# O(n) time O(n) space
-def iterative_post_order(root):
-    s1 = []
-    s2 = []
-    s1.append(root)
-    while s1 != []:
-        root = s1.pop()
-        s2.append(root)
-        if root.get_left_child():
-            s1.append(root.left_child)
-        if root.get_right_child():
-            s1.append(root.right_child)
-
-    while s2 != []:
-        root = s2.pop()
-        print root.key
-
-# O(n) time O(n) space
-def iterative_inorder(root):
-    if root == None:
-        return
-
-    stack = []
-
-    while True:
-        if root != None:
-            stack.append(root)
-            root = root.left_child
-        else:
-            if stack == []:
-                break
-            root = stack.pop()
-            print root.key
-            root = root.right_child
-# print tree.post_order()
+tree = build_tree()
