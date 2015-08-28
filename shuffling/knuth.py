@@ -12,3 +12,5 @@ def shuffle(a_list):
         a_list[j] = temp
 
     return a_list
+
+print shuffle([1, 2, 3, 4, 5])

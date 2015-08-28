@@ -56,15 +56,13 @@ class BinaryHeap:
         while (i > 0):
             self.perc_down(i)
             i = i - 1
-        print(self.heap_list, i)
+        # print(self.heap_list, i)
 
-
-# bh = BinaryHeap()
-# bh.build_heap([9, 6, 5, 2, 3])
+"""
+bh = BinaryHeap()
+bh.build_heap([9, 6, 5, 2, 3])
 # print bh.heap_list
-# bh.del_min()
-# bh.del_min()
-# bh.del_min()
-# bh.del_min()
-# bh.del_min()
+while bh.current_size > 0:
+    print bh.del_min()
 # print bh.heap_list
+"""

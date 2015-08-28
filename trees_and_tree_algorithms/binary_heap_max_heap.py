@@ -51,5 +51,5 @@ class BinaryHeap:
             i -= 1
 
 bh = BinaryHeap()
-bh.build_heap([2, 9, 3, 6, 5])
+bh.build_heap([6, 5, 3, 1, 8, 7, 2, 4])
 print bh.heap_list
