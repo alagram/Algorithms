@@ -9,21 +9,19 @@ end
 
 
 class OrderedList
-  # attr_accessor :head
-
   def initialize
     @head = nil
   end
 
   def is_empty
-    @head == nil
+    @head.nil?
   end
 
   def size
     current = @head
     count = 0
 
-    while current != nil
+    while !current.nil?
       count += 1
       current = current.next
     end
@@ -45,7 +43,7 @@ class OrderedList
       end
     end
 
-    if previous == nil
+    if previous.nil?
       head = current.next
     else
       previous.next = current.next
@@ -57,7 +55,7 @@ class OrderedList
     found = false
     stop = false
 
-    while current != nil && !found && !stop
+    while !current.nil? && !found && !stop
       if current.data == item
         found = true
       else
@@ -77,7 +75,7 @@ class OrderedList
     previous = nil
     stop = false
 
-    while current != nil and !stop
+    while !current.nil? && !stop
       if current.data > item
         stop = true
       else
@@ -87,7 +85,7 @@ class OrderedList
     end
 
     temp = Node.new(item)
-    if previous == nil
+    if previous.nil?
       temp.next = @head
       @head = temp
     else
