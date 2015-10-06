@@ -26,7 +26,7 @@ class UnorderedList
     current = @head
     count = 0
 
-    while current != nil
+    while !current.nil?
       count += 1
       current = current.next
     end
@@ -38,7 +38,7 @@ class UnorderedList
     current = @head
     found = false
 
-    while current != nil and !found
+    while !current.nil? and !found
       if current.data == item
         found = true
       else
@@ -62,7 +62,7 @@ class UnorderedList
         current = current.next
     end
 
-    if previous == nil
+    if previous.nil?
       @head = current.next
     else
       previous.next = current.next
