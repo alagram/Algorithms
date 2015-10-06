@@ -6,7 +6,7 @@ class Queue
   end
 
   def is_empty
-    items == []
+    items.empty?
   end
 
   def enqueue(item)
