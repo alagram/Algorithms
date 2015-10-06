@@ -29,7 +29,7 @@ class Stack
 end
 
 
-
+=begin
 s = Stack.new
 p s.is_empty
 s.push(1)
@@ -42,3 +42,4 @@ p s.pop
 p s.peek
 
 p s.is_empty
+=end
