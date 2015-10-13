@@ -5,4 +5,4 @@ def revStr(my_string):
         return my_string[-1] + revStr(my_string[:-1])
 
 
-revStr("albert")
+print(revStr("albert"))
