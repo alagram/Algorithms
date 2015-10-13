@@ -9,16 +9,18 @@ end
 
 
 class OrderedList
+  attr_accessor :head
+
   def initialize
     @head = nil
   end
 
-  def is_empty
-    @head.nil?
+  def is_empty?
+    head.nil?
   end
 
   def size
-    current = @head
+    current = head
     count = 0
 
     while !current.nil?
@@ -30,7 +32,7 @@ class OrderedList
   end
 
   def remove(item)
-    current = @head
+    current = head
     previous = nil
     found = false
 
@@ -44,14 +46,14 @@ class OrderedList
     end
 
     if previous.nil?
-      head = current.next
+      self.head = current.next
     else
       previous.next = current.next
     end
   end
 
   def search(item)
-    current = @head
+    current = head
     found = false
     stop = false
 
@@ -71,7 +73,7 @@ class OrderedList
   end
 
   def add(item)
-    current = @head
+    current = head
     previous = nil
     stop = false
 
@@ -86,8 +88,8 @@ class OrderedList
 
     temp = Node.new(item)
     if previous.nil?
-      temp.next = @head
-      @head = temp
+      temp.next = head
+      self.head = temp
     else
       temp.next = current
       previous.next = temp
@@ -97,9 +99,11 @@ end
 
 
 l1 = OrderedList.new()
-(1..5).each do |num|
+(1..10).to_a.shuffle.each do |num|
   l1.add(num)
 end
 
 p l1.search(7)
 p l1.size
+
+p l1

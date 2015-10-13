@@ -8,22 +8,24 @@ class Node
 end
 
 class UnorderedList
+  attr_accessor :head
+
   def initialize
     @head = nil
   end
 
   def add(item)
     temp = Node.new(item)
-    temp.next = @head
-    @head = temp
+    temp.next = head
+    self.head = temp
   end
 
-  def is_empty
-    @head == nil
+  def is_empty?
+    head.nil?
   end
 
   def size
-    current = @head
+    current = head
     count = 0
 
     while !current.nil?
@@ -35,7 +37,7 @@ class UnorderedList
   end
 
   def search(item)
-    current = @head
+    current = head
     found = false
 
     while !current.nil? and !found
@@ -50,7 +52,7 @@ class UnorderedList
   end
 
   def remove(item)
-    current = @head
+    current = head
     previous = nil
     found = false
 
@@ -60,12 +62,23 @@ class UnorderedList
       else
         previous = current
         current = current.next
+      end
     end
 
     if previous.nil?
-      @head = current.next
+      self.head = current.next
     else
       previous.next = current.next
     end
   end
 end
+
+
+l1 = UnorderedList.new()
+(1..10).to_a.shuffle.each do |num|
+  l1.add(num)
+end
+
+p l1.search(3)
+p l1.size
+p l1
