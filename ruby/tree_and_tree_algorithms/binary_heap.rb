@@ -1,6 +1,6 @@
 class BinaryHeap
 
-  attr_accessor :heap_list, :current_size
+  # attr_accessor :heap_list, :current_size
 
   def initialize
     @heap_list = [0]
@@ -21,7 +21,7 @@ class BinaryHeap
 
   def insert(item)
     @heap_list.push(item)
-    @current_size = @current_size + 1
+    @current_size += 1
     perc_up(@current_size)
   end
 
@@ -53,7 +53,7 @@ class BinaryHeap
   def del_min
     ret_val = @heap_list[1]
     @heap_list[1] = @heap_list[@current_size]
-    @current_size = @current_size - 1
+    @current_size -= 1
     @heap_list.pop
     perc_down(1)
     return ret_val
