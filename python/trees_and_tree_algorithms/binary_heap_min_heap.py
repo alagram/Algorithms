@@ -44,10 +44,7 @@ class BinaryHeap:
         return ret_val # return min
 
     def is_empty(self):
-        if self.current_size == 0:
-            return True
-        else:
-            return False
+        return True if self.current_size == 0 else False
 
     def build_heap(self, a_list):
         i = len(a_list) // 2
