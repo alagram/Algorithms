@@ -5,7 +5,7 @@ from graphs_and_graph_algorithms.graph import Graph
 """
 ref: https://www.hackerrank.com/contests/juniper-hackathon/challenges/friend-circles
 """
-def friend_circle(graph):
+def friend_circle_strongly_connected_components(graph):
     stack = []
     visited = set()
 
@@ -75,6 +75,17 @@ if __name__ == '__main__':
              ['N', 'N', 'N', 'Y', 'N'],
              ['N', 'N', 'N', 'N', 'Y']]
 
+    matrix3 =  [['Y', 'N', 'N', 'N', 'N', 'N', 'Y', 'N', 'N', 'N'],
+                ['N', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'N', 'Y'],
+                ['N', 'N', 'Y', 'N', 'Y', 'N', 'N', 'N', 'N', 'N'],
+                ['N', 'N', 'N', 'Y', 'N', 'N', 'N', 'N', 'N', 'N'],
+                ['N', 'N', 'Y', 'N', 'Y', 'N', 'N', 'N', 'N', 'N'],
+                ['N', 'Y', 'N', 'N', 'N', 'Y', 'N', 'N', 'N', 'N'],
+                ['Y', 'N', 'N', 'N', 'N', 'N', 'Y', 'N', 'N', 'N'],
+                ['N', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', 'N', 'N'],
+                ['N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'Y', 'N'],
+                ['N', 'Y', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'Y']]
+
     g = Graph()
     n = len(matrix)
     i = 0
@@ -86,7 +97,8 @@ if __name__ == '__main__':
             j += 1
         i += 1
 
-    print friend_circle(g)
+    print friend_circle_strongly_connected_components(g)
+    print('\n')
 
     g1 = Graph()
     m = len(mat_2)
@@ -99,4 +111,17 @@ if __name__ == '__main__':
             y += 1
         x += 1
 
-    print friend_circle(g1)
+    print friend_circle_strongly_connected_components(g1)
+    print('\n')
+
+    g2 = Graph()
+    m = len(matrix3)
+    x = 0
+    while x < m:
+        y = 0
+        while y < m:
+            if matrix3[x][y] == 'Y':
+                g2.add_edge(x, y, 'Y')
+            y += 1
+        x += 1
+    print friend_circle_strongly_connected_components(g2)
